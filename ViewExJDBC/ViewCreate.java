@@ -14,7 +14,7 @@ public class ViewCreate {
             Statement statement = conn.createStatement();
             String sql = "INSERT INTO pessoas(nome, sobrenome, idade, cpf)values('Teste', 'Java', 2, '789456123')";
 
-            statement.execute(sql, statement.RETURN_GENERATED_KEYS);            
+            statement.execute(sql, Statement.RETURN_GENERATED_KEYS);            
             ResultSet ids = statement.getGeneratedKeys();
 
             while(ids.next()){

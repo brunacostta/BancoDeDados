@@ -12,7 +12,7 @@ public class Update3 {
             
             //Na classe3, altere o nome da primeira e segunda categoria da tabela e exiba a quantidade de linhas afetadas.
             Statement statement = conn.createStatement();
-            String sql = "UPDATE categoria SET nome = 'refeição' WHERE id < 3";
+            String sql = "UPDATE categoria SET nome = 'refeição' WHERE id = 2 OR id = 1";
             statement.execute(sql);
 
             int linhasAfetadas = statement.getUpdateCount();
