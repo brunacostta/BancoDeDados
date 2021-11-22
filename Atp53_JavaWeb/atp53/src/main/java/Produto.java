@@ -21,7 +21,7 @@ public class Produto extends HttpServlet {
             int id_categoria = Integer.parseInt(paramentId);
             out.printf("Modulo Produto = Nome Prod = %s - %.2f - %d", nome, valor, id_categoria);
         }else{
-            out.printf("Modulo Produto = Nome Prod = %s - %f.2", nome);
+            out.printf("Modulo Produto = Nome Prod = %s - %.2f", nome);
         }
     }
 }
