@@ -16,7 +16,7 @@ public class Produto extends HttpServlet {
         String paramentId = req.getParameter("id_categoria");
 
         PrintWriter out = resp.getWriter();
-        if (paramentValor != null || paramentId != null) {
+        if (paramentValor != null && paramentId != null) {
             float valor = Float.parseFloat(paramentValor); 
             int id_categoria = Integer.parseInt(paramentId);
             out.printf("Modulo Produto = Nome Prod = %s - %.2f - %d", nome, valor, id_categoria);
