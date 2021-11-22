@@ -15,6 +15,7 @@ public class Create {
             Categoria cat = new Categoria("Add", "Add2");
             
             dao.create(cat);
+
             
         } catch (SQLException e) {
             e.printStackTrace();
