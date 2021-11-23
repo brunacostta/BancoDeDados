@@ -22,7 +22,7 @@ public class CategoriaReadServlet extends HttpServlet {
             PrintWriter out = resp.getWriter();
             CategoriaDao dao = new CategoriaDao(conn);
             for (Categoria model : dao.read()) {
-                out.printf("%d - %s", model.getId(), model.getNome());
+                out.printf("\n%d - %s", model.getId(), model.getNome());
             }
         } catch (Exception e) {
             e.printStackTrace();
