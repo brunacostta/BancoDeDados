@@ -1,9 +1,18 @@
 package com.bruna.atp53.models;
 
 public class Produto {
+    private int id;
     private String nome;
     private float valor;
     private int idCategoria;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
