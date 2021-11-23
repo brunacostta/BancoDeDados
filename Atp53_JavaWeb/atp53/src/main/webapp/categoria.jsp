@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Cadastro de Categoria</h1>
-    <form action="/atp53-1/categoria">
+    <form action="/atp53-1/categoria" method="post">
         Nome: <input type="text" name="nome" id="nome">
         Descricao: <input type="text" name="descricao" id="descricao">
         <input type="submit" value="Salvar">

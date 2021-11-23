@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Launch Chrome",
+        "request": "launch",
+        "type": "pwa-chrome",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+    },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Delete4",
+            "request": "launch",
+            "mainClass": "BancoDeDados.Atp50_PoolConexoes.View.Delete4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Create",
+            "request": "launch",
+            "mainClass": "BancoDeDados.Atp51_DAO.View.Create"
+        },
+        {
+            "type": "java",
+            "name": "Launch View",
+            "request": "launch",
+            "mainClass": "BancoDeDados.ViewExJDBC.View"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewCreate",
+            "request": "launch",
+            "mainClass": "BancoDeDados.ViewExJDBC.ViewCreate"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewDelete",
+            "request": "launch",
+            "mainClass": "BancoDeDados.ViewExJDBC.ViewDelete"
+        }
+    ]
+}

@@ -1,7 +1,10 @@
 package com.bruna.atp53.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 
+import com.bruna.atp53.dao.CategoriaDao;
+import com.bruna.atp53.dao.ConnectionFactory;
 import com.bruna.atp53.models.Categoria;
 
 import jakarta.servlet.ServletException;
@@ -13,13 +16,21 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/categoria")
 public class CategoriaServlet extends HttpServlet{
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Categoria cat1 = new Categoria();
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try (Connection conn = new ConnectionFactory().getConnection()) {
+            CategoriaDao dao = new CategoriaDao(conn);
+            Categoria model = new Categoria();
         
-        cat1.setNome(req.getParameter("nome"));
-        cat1.setDescricao(req.getParameter("descricao"));
+            model.setNome(req.getParameter("nome"));
+            model.setDescricao(req.getParameter("descricao"));
+            int id = dao.insert(model);
+
+            model.setId(id);
         
-        PrintWriter out = resp.getWriter();
-        out.printf("Modulo Categoria || Cat = %s || Descricao = %s", cat1.getNome(), cat1.getDescricao());
+            PrintWriter out = resp.getWriter();
+            out.printf("Categoria com id nº: %s inserido com sucesso! ",model.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
 }
