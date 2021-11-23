@@ -1,2 +1,4 @@
-Categoria.class
-Produto.class
+com\bruna\atp53\servlets\CategoriaServlet.class
+com\bruna\atp53\models\Produto.class
+com\bruna\atp53\models\Categoria.class
+com\bruna\atp53\servlets\ProdutoServlet.class
