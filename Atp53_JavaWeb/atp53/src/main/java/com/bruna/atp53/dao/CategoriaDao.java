@@ -16,7 +16,7 @@ public class CategoriaDao {
     }
 
     public int insert(Categoria model) throws SQLException {
-            
+        int idGerado = 0;   
         PreparedStatement prepStatement = this.conn.prepareStatement("INSERT INTO categoria(nome,descricao)VALUES(?,?)", Statement.RETURN_GENERATED_KEYS);
         prepStatement.setString(1, model.getNome());
         prepStatement.setString(2, model.getDescricao());
@@ -25,10 +25,10 @@ public class CategoriaDao {
         ResultSet ids = prepStatement.getGeneratedKeys();
 
         while (ids.next()) {
-            int id = ids.getInt(1);
-            System.out.printf("\nCategoria com id nº: %s inserido com sucesso! ",id);
+            idGerado = ids.getInt("id");
+            System.out.printf("\nCategoria com id nº: %s inserido com sucesso! ",idGerado);
         }
-        return 0;
+        return idGerado;
     } 
     
     public ArrayList<Categoria> read() throws SQLException {
