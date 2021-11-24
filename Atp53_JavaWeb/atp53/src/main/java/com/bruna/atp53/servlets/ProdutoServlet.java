@@ -1,12 +1,8 @@
 package com.bruna.atp53.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-
 import com.bruna.atp53.dao.CategoriaDao;
-import com.bruna.atp53.dao.ConnectionFactory;
 import com.bruna.atp53.models.Produto;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,16 +13,16 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try (Connection conn = new ConnectionFactory().getConnection()) {
-            CategoriaDao dao = new CategoriaDao(conn);
-            Produto model = new Produto();
-            PrintWriter out = resp.getWriter();
+    
+        CategoriaDao dao = new CategoriaDao();
+        Produto model = new Produto();
+        PrintWriter out = resp.getWriter();
         
-            String nome = req.getParameter("nome");
-            String paramentValor = req.getParameter("valor");
-            String paramentId = req.getParameter("id_categoria");
+        String nome = req.getParameter("nome");
+        String paramentValor = req.getParameter("valor");
+        String paramentId = req.getParameter("id_categoria");
 
-            model.setNome(nome);
+        model.setNome(nome);
 
         if (paramentValor != null && paramentId != null) {
             model.setValor(Float.parseFloat(paramentValor));
@@ -35,8 +31,5 @@ public class ProdutoServlet extends HttpServlet {
         }else{
             out.printf("Modulo Produtos || Produto = %s", model.getNome());
         }
-        } catch (Exception e) {
-        e.printStackTrace();
-        } 
     }
 }
