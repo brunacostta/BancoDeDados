@@ -14,10 +14,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( " Sistema de Banco -- ATP 59! " );
         CategoriaModel model = new CategoriaModel();
-        model.setNome("Teste JPA pa pa pa ");
-        model.setDescricao("descricao 569741236");
+        model.setNome("Patati");
+        model.setDescricao("patata");
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("banco");
         EntityManager em = factory.createEntityManager();
@@ -28,8 +27,10 @@ public class App
 
         List<CategoriaModel> lista = em.createQuery("SELECT c FROM CategoriaModel c", CategoriaModel.class).getResultList();
 
+        System.out.println("\n ******** Sistema de Banco -- ATP 59! ********** ");
+
         for (CategoriaModel categoria : lista) {
-            System.out.printf("%d - %s - %s\n", categoria.getId(), categoria.getNome(), categoria.getDescricao());
+            System.out.printf("\nId: %d -- || -- Nome: %s -- || -- Descrição: %s\n", categoria.getId(), categoria.getNome(), categoria.getDescricao());
         }
     }
 }
