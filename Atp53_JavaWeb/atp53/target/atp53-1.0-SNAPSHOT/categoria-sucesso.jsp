@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Sucesso</h1>
-    <h4>Categoria de id:<%= id %> cadastrada com sucesso</h4>
+    <h4>Categoria de id:<%= id %> Cadastrada com sucesso!</h4>
     <a href="/atp53-1/categoria/listar">Categoria listar</a> <br />
 </body>
 </html>

@@ -19,15 +19,15 @@ public class CategoriaReadServlet extends HttpServlet {
         ArrayList<Categoria> categorias;
         String nome = req.getParameter("nome");
         String descricao = req.getParameter("descricao");
-
-        categorias = dao.read(descricao);
         
         if(nome != null && nome != ""){
-            categorias = dao.read(nome);
+            categorias = dao.read(nome, descricao);
         }
         else{
             categorias = dao.read();
-        }          
+        }       
+        
+
         
         req.setAttribute("categorias", categorias);   
         RequestDispatcher rd = req.getRequestDispatcher("/categoria-lista.jsp");

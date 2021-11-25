@@ -14,9 +14,10 @@ public class CategoriaDao {
         int idGerado = 0;
         try(Connection conn = new ConnectionFactory().getConnection()) { 
             
-            String sql = "INSERT INTO categoria(nome)values(?)";
+            String sql = "INSERT INTO categoria(nome, descricao)values(?,?)";
             PreparedStatement prepStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             prepStatement.setString(1, model.getNome());
+            prepStatement.setString(2, model.getDescricao());
 
             prepStatement.execute();            
             ResultSet ids = prepStatement.getGeneratedKeys();
@@ -42,6 +43,7 @@ public class CategoriaDao {
             while (result.next()) {
                 model.setId(result.getInt("id"));
                 model.setNome(result.getString("nome"));
+                model.setDescricao(result.getString("descricao"));
                 break;
             }
 
@@ -50,12 +52,13 @@ public class CategoriaDao {
         } 
         return model;
     }
-    public ArrayList<Categoria> read(String nome) {
+    public ArrayList<Categoria> read(String nome, String descricao) {
 
         ArrayList<Categoria> list = new ArrayList<Categoria>();
         try(Connection conn = new ConnectionFactory().getConnection()) {
-            PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM categoria WHERE nome = ? ORDER BY id");
+            PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM categoria WHERE (nome, descricao) = (?,?) ORDER BY id");
             prepStatement.setString(1, nome);
+            prepStatement.setString(2, descricao);
             prepStatement.execute();
             ResultSet result = prepStatement.getResultSet();
             list = createList(result);
@@ -97,6 +100,7 @@ public class CategoriaDao {
             String sql = "UPDATE categoria SET nome=? WHERE id = ?";            
             PreparedStatement prepStatement = conn.prepareStatement(sql);
             prepStatement.setString(1, model.getNome());
+            prepStatement.setString(2, model.getDescricao());
             prepStatement.setInt(2, model.getId());
 
             prepStatement.execute();  
