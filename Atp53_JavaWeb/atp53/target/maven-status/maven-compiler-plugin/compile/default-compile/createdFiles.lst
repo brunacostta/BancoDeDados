@@ -1,6 +1,9 @@
+com\bruna\atp53\servlets\CategoriaDeletarServlet.class
+com\bruna\atp53\servlets\CategoriaBuscarIdServlet.class
 com\bruna\atp53\models\Produto.class
 com\bruna\atp53\servlets\ProdutoServlet.class
 com\bruna\atp53\servlets\CategoriaReadServlet.class
+com\bruna\atp53\servlets\CategoriaAlterarServlet.class
 com\bruna\atp53\servlets\CategoriaServlet.class
 com\bruna\atp53\dao\CategoriaDao.class
 com\bruna\atp53\dao\ConnectionFactory.class

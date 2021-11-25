@@ -13,15 +13,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/categoria/alterar")
-public class CategoriaAlterarServlet extends HttpServlet {
+public class CategoriaAlterarServlet extends HttpServlet{
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CategoriaDao dao = new CategoriaDao();
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-        Categoria model = dao.readById(id);
+        String nome = req.getParameter("nome");
 
-        RequestDispatcher rd = req.getRequestDispatcher("/categoria/alterar.jsp");
-        req.setAttribute("model", model);
+        Categoria model = new Categoria();
+        model.setId(id);
+        model.setNome(nome);
+
+        CategoriaDao dao = new CategoriaDao();
+        dao.update(model);
+
+        RequestDispatcher rd = req.getRequestDispatcher("/categoria-alterado-sucesso.jsp");
+        req.setAttribute("id", model.getId());
         rd.forward(req, resp);
     }
 }

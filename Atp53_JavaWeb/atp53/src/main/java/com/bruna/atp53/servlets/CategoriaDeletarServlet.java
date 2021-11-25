@@ -22,7 +22,7 @@ public class CategoriaDeletarServlet extends HttpServlet {
         model.setId(id);
         dao.delete(model);
 
-        RequestDispatcher rd = req.getRequestDispatcher("categoria/listar");
+        RequestDispatcher rd = req.getRequestDispatcher("/categoria/listar");
         rd.forward(req, resp);
     }
 }
