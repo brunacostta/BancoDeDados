@@ -30,21 +30,26 @@ public class CategoriaDao {
         return idGerado;
     }
     
-    public ArrayList<Categoria> read(String nome) {
+    public Categoria readById(int id) {
 
-        ArrayList<Categoria> list = new ArrayList<Categoria>();
+        Categoria model = new Categoria();
         try(Connection conn = new ConnectionFactory().getConnection()) {
-            PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM categoria WHERE nome = ?");
-            prepStatement.setString(1, nome);
+            PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM categoria WHERE id = ?");
+            prepStatement.setInt(1, id);
             prepStatement.execute();
-            ResultSet result = prepStatement.getResultSet();
-            list = createList(result);
+            ResultSet result = prepStatement.getResultSet();  
+
+            while (result.first()) {
+                model.setId(result.getInt("id"));
+                model.setNome(result.getString("nome"));
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } 
-        return list;
+        return model;
     }
-	public ArrayList<Categoria> read() {
+	public ArrayList<Categoria> read(String nome) {
         ArrayList<Categoria> list = new ArrayList<Categoria>();
 
         try(Connection conn = new ConnectionFactory().getConnection()) {           
