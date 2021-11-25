@@ -84,6 +84,7 @@ public class CategoriaDao {
             Categoria model = new Categoria();                
             model.setId(result.getInt("id"));
             model.setNome(result.getString("nome"));
+            model.setDescricao(result.getString("descricao"));
             list.add(model);
         }
         return list;

@@ -18,10 +18,12 @@ public class CategoriaAlterarServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         String nome = req.getParameter("nome");
+        String descricao = req.getParameter("descricao");
 
         Categoria model = new Categoria();
         model.setId(id);
         model.setNome(nome);
+        model.setDescricao(descricao);
 
         CategoriaDao dao = new CategoriaDao();
         dao.update(model);

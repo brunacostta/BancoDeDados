@@ -24,6 +24,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
+                <th>Descricao</th>
                 <th>Acao</th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
             <tr>
                 <td><%= model.getId() %></td>
                 <td><%= model.getNome() %></td>
+                <td><%= model.getDescricao() %></td>
                 <td>
                     <a href="/atp53-1/categoria/carregar?id=<%= model.getId() %>">Alterar</a> ||
                     <a href="/atp53-1/categoria/deletar?id=<%= model.getId() %>">Deletar</a>
