@@ -11,24 +11,24 @@ import com.bruna.atp53.models.Categoria;
 
 public class CategoriaDao {
     public int insert(Categoria model){
-        int idGerado = 0;   
-        try (Connection conn = new ConnectionFactory().getConnection();){
-            PreparedStatement prepStatement = conn.prepareStatement("INSERT INTO categoria(nome,descricao)VALUES(?,?)", Statement.RETURN_GENERATED_KEYS);
+        int idGerado = 0;
+        try(Connection conn = new ConnectionFactory().getConnection()) { 
+            
+            String sql = "INSERT INTO categoria(nome)values(?)";
+            PreparedStatement prepStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             prepStatement.setString(1, model.getNome());
-            prepStatement.setString(2, model.getDescricao());
 
-            prepStatement.execute();
+            prepStatement.execute();            
             ResultSet ids = prepStatement.getGeneratedKeys();
 
-            while (ids.next()) {
+            while(ids.next()){
                 idGerado = ids.getInt("id");
-                System.out.printf("\nCategoria com id nº: %s inserido com sucesso! ",idGerado);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return idGerado;
-    } 
+    }
     
     public ArrayList<Categoria> read(String nome) {
 

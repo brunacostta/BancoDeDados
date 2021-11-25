@@ -1,5 +1,7 @@
 <html>
-    <head><title>APP ATP53</title>
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Sistemas de Cadadastro</title>
     </head>
     <body>
         <h2>Seja Bem Vindo!</h2>
