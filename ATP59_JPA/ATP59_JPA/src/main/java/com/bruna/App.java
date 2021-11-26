@@ -6,6 +6,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.bruna.dao.CategoriaDao;
+import com.bruna.dao.CategoriaModelo;
+import com.bruna.model.Categoria;
 import com.bruna.model.CategoriaModel;
 
 /**
@@ -18,14 +20,21 @@ public class App
     {
         CategoriaDao dao = new CategoriaDao();
         CategoriaModel model = new CategoriaModel();
+        CategoriaModelo cm = new CategoriaModelo();
+        Categoria cat = new Categoria();
 
-        model.setId(44);
-        model.setNome("teste 26/11");
-        model.setDescricao("teste daooooooo");
+        //model.setId(44);
+        //model.setNome("teste 26/11");
+        //model.setDescricao("teste daooooooo");
 
         //dao.create(model);
 
-        dao.update(model);
+        // dao.update(model);
+
+        cat.setNome("Bruna");
+        cat.setDescricao("Nova");
+
+        cm.create(cat);
 
         System.out.println("\n ******** Sistema de Banco -- ATP 59! ********** ");
 
