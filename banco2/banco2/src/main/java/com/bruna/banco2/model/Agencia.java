@@ -6,16 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-//Crie uma camada model e adicione a classe model de Clientes. Crie as propriedades que julgar necessário.
+//Crie uma nova model de Agência. Adicione os atributos que julgar relevantes
 @Entity
-@Table(name = "cliente")
-public class Cliente {
+@Table(name = "agencia")
+public class Agencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
-    private String sobrenome;
+    private String ramo;
 
     public void setId(int id) {
         this.id = id;
@@ -24,18 +23,20 @@ public class Cliente {
     public int getId() {
         return id;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getNome() {
         return nome;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    public void setRamo(String ramo) {
+        this.ramo = ramo;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
+    public String getRamo() {
+        return ramo;
     }
 }
