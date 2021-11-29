@@ -24,6 +24,10 @@
             <td th:text="${cadastroCliente.id}"></td>
             <td th:text="${cadastroCliente.nome}"></td>
             <td th:text="${cadastroCliente.sobrenome}"></td>
+            <td>
+                <a th:href="@{'/cadastroCliente/editar/'+${cadastroCliente.id}}">Editar</a> ||
+                <a th:href="@{'/cadastroCliente/deletar/'+${cadastroCliente.id}}">Deletar</a>
+            </td>
         </tr>
     </tbody>
     </table>

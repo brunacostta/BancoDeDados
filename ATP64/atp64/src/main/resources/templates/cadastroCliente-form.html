@@ -9,8 +9,9 @@
 <body>
     <h1>Cadastro de clientes</h1>
     <form action="/cadastroCliente/salvar" method="post">
-        Nome: <input type="text" name="nome" id="nome"> <br />
-        Sobrenome: <input type="text" name="sobrenome" id="sobrenome"> <br />
+        <input type="hidden" name="id" id="id" th:value="${cadastro.id}">
+        Nome: <input type="text" name="nome" id="nome" th:value="${cadastro.nome}"> <br />
+        Sobrenome: <input type="text" name="sobrenome" id="sobrenome" th:value="${cadastro.sobrenome}"> <br />
         <input type="submit" value="Salvar">
     </form>
     <br />
