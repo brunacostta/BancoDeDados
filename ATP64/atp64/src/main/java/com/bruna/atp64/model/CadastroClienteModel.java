@@ -14,6 +14,7 @@ import lombok.Setter;
     public class CadastroClienteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Getter 
     @Setter
     private int id;

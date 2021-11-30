@@ -21,9 +21,13 @@ public class CadastroClientesController {
     }
     
     @GetMapping("/cadastroCliente")
-    public String CadastroClientes(HttpServletRequest req){
-        List<CadastroClienteModel> lista = (List<CadastroClienteModel>)repository.findAll();
-        
+    public String CadastroClientes(HttpServletRequest req, String nome){
+        List<CadastroClienteModel> lista;
+        if (nome != null) {
+            lista = (List<CadastroClienteModel>)repository.findByNome(nome);
+        }else{
+            lista = (List<CadastroClienteModel>)repository.findAll();
+        }
         req.setAttribute("cadastro", lista);
         return "cadastroClientes";
     }
